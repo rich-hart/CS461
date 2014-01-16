@@ -1,0 +1,199 @@
+psql -h wander -U cs461_user -d CS461Dev
+
+DROP TABLE Photographers CASCADE;
+DROP TABLE Photographs CASCADE;
+DROP TABLE PhotoSales CASCADE;
+DROP TABLE Customers CASCADE;
+DROP TABLE RefPhotoAttributes CASCADE;
+DROP TABLE PhotoAttributes CASCADE;
+DROP TABLE RefSalesCategory CASCADE;
+DROP TABLE SalesCategories CASCADE;
+DROP TABLE RefEquipmentUsed CASCADE;
+DROP TABLE PhotoEquipment CASCADE;
+DROP TABLE UpdatedPhotographs CASCADE;
+
+CREATE TABLE Photographers
+(id_photographer SERIAL,
+ first_name CHAR (20),
+ last_name CHAR (20),
+ order_form CHAR (30),
+ PRIMARY KEY (id_photographer)
+);
+CREATE UNIQUE INDEX name_index on Photographers(last_name, first_name);
+ 
+
+CREATE TABLE Photographs
+(
+ id_photo SERIAL,
+ filename char(20),
+ title char(20),
+ Description char(20),
+ id_photographer int,
+ photo_order int,
+ height int, 
+ width int,
+ city char (20),
+ state char (20),
+ country char(20),
+ date_taken date,
+ PRIMARY KEY (id_photo),
+ FOREIGN KEY (id_photographer) REFERENCES Photographers(id_photographer) ON DELETE CASCADE
+);
+CREATE UNIQUE INDEX filename_index on Photographs (filename); 
+
+CREATE TABLE Customers
+(
+id_customer SERIAL,
+first_name char(20),
+last_name char(20),
+address1 char(50),
+address2 char(50),
+city char(20),
+state char(20),
+zip char(9),
+country char(20),
+PRIMARY KEY (id_customer)
+);
+CREATE UNIQUE INDEX customer_name_index on Customers (last_name, first_name);
+CREATE TABLE PhotoSales
+(
+ id_sale SERIAL,
+id_customer int,
+ id_photo int,
+quanity_sold int,
+ id_sale_price float,
+ id_tax int,
+ sale_date date,
+ PRIMARY KEY (id_sale)
+);
+
+CREATE TABLE RefPhotoAttributes
+(
+ id_attribute SERIAL,
+ attribute_desc char(20),
+ PRIMARY KEY (id_attribute));
+
+CREATE UNIQUE INDEX attribute_index on RefPhotoAttributes (attribute_desc);
+
+CREATE TABLE PhotoAttributes
+(
+ id_photo int,
+ id_attribute int,
+ PRIMARY KEY (id_photo, id_attribute),
+ FOREIGN KEY (id_photo) REFERENCES Photographs(id_photo) ON DELETE CASCADE,
+ FOREIGN KEY (id_attribute) REFERENCES RefPhotoAttributes(id_attribute) ON DELETE CASCADE
+);
+
+
+CREATE TABLE RefSalesCategory
+(
+ id_sales_category SERIAL,
+ sales_category char(20),
+ PRIMARY KEY (id_sales_category));
+
+CREATE UNIQUE INDEX salescat_index on RefSalesCategory (sales_category);
+
+CREATE TABLE SalesCategories
+(
+ id_photo int,
+ id_sales_category int,
+ PRIMARY KEY (id_photo, id_sales_category),
+ FOREIGN KEY (id_photo) REFERENCES Photographs(id_photo) ON DELETE CASCADE,
+ FOREIGN KEY (id_sales_category) REFERENCES RefSalesCategory(id_sales_category) ON DELETE CASCADE
+);
+ 
+
+CREATE TABLE RefEquipmentUsed
+( 
+ id_equipment SERIAL,
+ equipment_desc char(30),
+ PRIMARY KEY (id_equipment));
+
+CREATE TABLE PhotoEquipment
+(
+ id_photo int,
+ id_equipment int,
+ PRIMARY KEY (id_photo, id_equipment),
+ FOREIGN KEY (id_photo) REFERENCES Photographs(id_photo) ON DELETE CASCADE,
+ FOREIGN KEY (id_equipment) REFERENCES RefEquipmentUsed(id_equipment) ON DELETE CASCADE
+);
+
+CREATE TABLE UpdatedPhotographs
+(
+ filename char(20),
+ title char(20),
+ PRIMARY KEY (filename)
+);
+
+
+INSERT INTO Photographers (first_name, last_name, order_form) VALUES ('JEFF', 'SALVAGE', 'ORDER1');
+INSERT INTO Photographers (first_name, last_name, order_form) VALUES ('JOHN', 'COCKTOSEN', 'ORDER2');
+INSERT INTO Photographers (first_name, last_name, order_form) VALUES ('BILLY JEAN', 'KING', 'ORDER1');
+
+INSERT INTO RefEquipmentUsed (equipmentdesc) VALUES ('580X Flash II');
+INSERT INTO RefEquipmentUsed (equipmentdesc) VALUES ('Canon Rebel');
+INSERT INTO RefEquipmentUsed (equipmentdesc) VALUES ('300mm IS F2.8 Lens Canon');
+
+
+
+
+INSERT INTO Photographs (FILENAME, TITLE, HEIGHT, WIDTH, CITY, DATE_TAKEN, ID_PHOTOGRAPHER) VALUES ('A','Photo 1', 10, 5, 'PHILADELPHIA', '12/12/12',1);
+INSERT INTO Photographs (FILENAME, TITLE, HEIGHT, WIDTH, CITY, DATE_TAKEN, ID_PHOTOGRAPHER) VALUES ('B','Photo 2', 10, 5, 'NYC', '12/12/12',1);
+INSERT INTO Photographs (FILENAME, TITLE, HEIGHT, WIDTH, CITY, DATE_TAKEN, ID_PHOTOGRAPHER) VALUES ('C','Photo 3', 1, 5, 'PHILADELPHIA', '12/1/12',1);
+INSERT INTO Photographs (FILENAME, TITLE, HEIGHT, WIDTH, CITY, DATE_TAKEN, ID_PHOTOGRAPHER) VALUES ('D','Photo 4', 1, 5, 'PHILADELPHIA', '12/2/12',1);
+INSERT INTO Photographs (FILENAME, TITLE, HEIGHT, WIDTH, CITY, DATE_TAKEN, ID_PHOTOGRAPHER) VALUES ('E','Photo 5', 20, 5, 'TEST LARGEST', '12/8/12',1);
+
+
+INSERT INTO Photographs (FILENAME, TITLE, HEIGHT, WIDTH, CITY, DATE_TAKEN, ID_PHOTOGRAPHER) VALUES ('F','Photo 1', 10, 5, 'PHILADELPHIA', '12/12/12',2);
+INSERT INTO Photographs (FILENAME, TITLE, HEIGHT, WIDTH, CITY, DATE_TAKEN, ID_PHOTOGRAPHER) VALUES ('G','Photo 2', 10, 5, 'NYC', '12/12/12',2);
+INSERT INTO Photographs (FILENAME, TITLE, HEIGHT, WIDTH, CITY, DATE_TAKEN, ID_PHOTOGRAPHER) VALUES ('H','Photo 3', 1, 5, 'PHILADELPHIA', '12/1/12',2);
+INSERT INTO Photographs (FILENAME, TITLE, HEIGHT, WIDTH, CITY, DATE_TAKEN, ID_PHOTOGRAPHER) VALUES ('I','Photo 4', 1, 5, 'PHILADELPHIA', '12/2/12',2);
+INSERT INTO Photographs (FILENAME, TITLE, HEIGHT, WIDTH, CITY, DATE_TAKEN, ID_PHOTOGRAPHER) VALUES ('J','Photo 5', 20, 5, 'TEST LARGEST', '12/8/12',2);
+
+
+INSERT INTO Photographs (FILENAME, TITLE, HEIGHT, WIDTH, CITY, DATE_TAKEN, ID_PHOTOGRAPHER) VALUES ('K','Photo 1', 10, 5, 'PHILADELPHIA', '12/4/12',3);
+INSERT INTO Photographs (FILENAME, TITLE, HEIGHT, WIDTH, CITY, DATE_TAKEN, ID_PHOTOGRAPHER) VALUES ('L','Photo 2', 10, 5, 'PHILADELPHIA', '12/5/12',3);
+INSERT INTO Photographs (FILENAME, TITLE, HEIGHT, WIDTH, CITY, DATE_TAKEN, ID_PHOTOGRAPHER) VALUES ('M','Photo 3', 1, 5, 'PHILADELPHIA', '12/1/12',3);
+INSERT INTO Photographs (FILENAME, TITLE, HEIGHT, WIDTH, CITY, DATE_TAKEN, ID_PHOTOGRAPHER) VALUES ('N','Photo 4', 1, 5, 'PHILADELPHIA', '12/2/12',3);
+INSERT INTO Photographs (FILENAME, TITLE, HEIGHT, WIDTH, CITY, DATE_TAKEN, ID_PHOTOGRAPHER) VALUES ('O','Photo 4', 1, 1, 'TEST SMALLEST', '12/20/12',3);
+INSERT INTO Photographs (FILENAME, TITLE, HEIGHT, WIDTH, CITY, DATE_TAKEN, ID_PHOTOGRAPHER) VALUES ('P','Photo 6', 1, 10, 'TEST DUP CITY', '12/20/12',3);
+
+
+INSERT INTO UpdatedPhotographs (filename, title) VALUES ('A', 'Photo 1A');
+INSERT INTO UpdatedPhotographs (filename, title) VALUES ('B', 'Photo 2A');
+INSERT INTO UpdatedPhotographs (filename, title) VALUES ('C', 'Photo 3A');
+
+
+INSERT INTO PhotoEquipment (id_photo, id_equipment) VALUES (1,1);
+INSERT INTO PhotoEquipment (id_photo, id_equipment) VALUES (1,2);
+INSERT INTO PhotoEquipment (id_photo, id_equipment) VALUES (1,3);
+INSERT INTO PhotoEquipment (id_photo, id_equipment) VALUES (2,1);
+
+INSERT INTO RefPhotoAttributes (attribute_desc) VALUES ('Dallas Cowboys');
+INSERT INTO RefPhotoAttributes (attribute_desc) VALUES ('Landscape');
+INSERT INTO RefPhotoAttributes (attribute_desc) VALUES ('Ocean');
+INSERT INTO RefPhotoAttributes (attribute_desc) VALUES ('Unassigned');
+
+
+INSERT INTO PhotoAttributes (id_photo, id_attribute) VALUES (1,1);
+INSERT INTO PhotoAttributes (id_photo, id_attribute) VALUES (1,2);
+INSERT INTO PhotoAttributes (id_photo, id_attribute) VALUES (1,3);
+INSERT INTO PhotoAttributes (id_photo, id_attribute) VALUES (3,2);
+
+INSERT INTO PhotoSales (id_photo, id_sale_price, id_tax, sale_date) VALUES (11,1,1,'12/12/12');
+INSERT INTO PhotoSales (id_photo, id_sale_price, id_tax, sale_date) VALUES (12,1,1,'12/12/12');
+INSERT INTO PhotoSales (id_photo, id_sale_price, id_tax, sale_date) VALUES (1,1,1,'12/12/12');
+
+INSERT INTO RefSalesCategory (sales_category) Values ('Cat 1');
+INSERT INTO RefSalesCategory (sales_category) Values ('Cat 2');
+INSERT INTO RefSalesCategory (sales_category) Values ('Cat 3');
+INSERT INTO RefSalesCategory (sales_category) Values ('Cat 4');
+
+
+
+INSERT INTO SalesCategories (id_photo, id_sales_category) VALUES (3,1);
+INSERT INTO SalesCategories (id_photo, id_sales_category) VALUES (3,4);
+INSERT INTO SalesCategories (id_photo, id_sales_category) VALUES (2,2);
+INSERT INTO SalesCategories (id_photo, id_sales_category) VALUES (11,2);
+INSERT INTO SalesCategories (id_photo, id_sales_category) VALUES (12,4);
+ 
