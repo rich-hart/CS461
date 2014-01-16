@@ -1,4 +1,4 @@
-psql -h wander -U cs461_user -d CS461Dev
+
 
 DROP TABLE Photographers CASCADE;
 DROP TABLE Photographs CASCADE;
