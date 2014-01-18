@@ -96,7 +96,7 @@ CREATE UNIQUE INDEX salescat_index on RefSalesCategory (sales_category);
 CREATE TABLE SalesCategories
 (
  id_photo int,
- id_sales_category int,
+ id_sales_category SERIAL,
  PRIMARY KEY (id_photo, id_sales_category),
  FOREIGN KEY (id_photo) REFERENCES Photographs(id_photo) ON DELETE CASCADE,
  FOREIGN KEY (id_sales_category) REFERENCES RefSalesCategory(id_sales_category) ON DELETE CASCADE
