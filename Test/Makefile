@@ -1,2 +1,2 @@
 all:
-	psql -h wander -U cs461_user -d CS461Dev -f PhotographyExample
+	psql -h wander -U rhh32_cs461 -d CS461Dev -f PhotographyExample
