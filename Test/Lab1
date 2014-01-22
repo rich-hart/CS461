@@ -2,5 +2,5 @@ SELECT COUNT(Photographs.id_photo) AS PhotoCount FROM Photographs
 INNER JOIN PhotoSales ON Photographs.id_photo = PhotoSales.id_photo
 INNER JOIN PhotoAttributes ON PhotoAttributes.id_photo = Photographs.id_photo
 INNER JOIN RefPhotoAttributes ON RefPhotoAttributes.id_attribute = PhotoAttributes.id_attribute
-INNER JOIN SalesCategories ON SalesCategories.id_photo =PhotoSales.id_photo
-INNER JOIN RefSalesCategories ON RefSalesCategories.id_sales_category = SalesCategories.id_sales_category WHERE Photographs.city='New York City' AND Photographs.country='UNITED STATES' AND RefPhotoAttributes.attribute_desc = 'Sky' AND RefSalesCategory.category_desc='Cat 1';
+INNER JOIN SalesCategories ON SalesCategories.id_photo = PhotoSales.id_photo
+INNER JOIN RefSalesCategory ON RefSalesCategory.id_sales_category = RefSalesCategory.id_sales_category WHERE Photographs.city='New York City' AND Photographs.country='UNITED STATES' AND RefPhotoAttributes.attribute_desc = 'Sky' AND RefSalesCategory.sales_category='Cat 1';
