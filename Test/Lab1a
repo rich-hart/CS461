@@ -1,2 +1,1 @@
-SELECT Photographers.id_photographer AS PhotographerList FROM Photographers
-INNER JOIN Photographs ON Photographers.id_photographer = Photographs.id_photographer;
+SELECT * FROM Photographs WHERE Photographs.city = 'NYC';
