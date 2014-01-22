@@ -1,0 +1,2 @@
+SELECT Photographers.id_photographer AS PhotographerList FROM Photographers
+INNER JOIN Photographs ON PhotographerList.id_photographer = Photographs.id_photographer
