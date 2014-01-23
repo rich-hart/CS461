@@ -1,5 +1,3 @@
-
-
 DROP TABLE Photographers CASCADE;
 DROP TABLE Photographs CASCADE;
 DROP TABLE PhotoSales CASCADE;
@@ -20,7 +18,6 @@ CREATE TABLE Photographers
  PRIMARY KEY (id_photographer)
 );
 CREATE UNIQUE INDEX name_index on Photographers(last_name, first_name);
- 
 
 CREATE TABLE Photographs
 (
@@ -71,7 +68,8 @@ CREATE TABLE RefPhotoAttributes
 (
  id_attribute SERIAL,
  attribute_desc char(20),
- PRIMARY KEY (id_attribute));
+ PRIMARY KEY (id_attribute)
+);
 
 CREATE UNIQUE INDEX attribute_index on RefPhotoAttributes (attribute_desc);
 
@@ -89,7 +87,8 @@ CREATE TABLE RefSalesCategory
 (
  id_sales_category int,
  sales_category char(20),
- PRIMARY KEY (id_sales_category));
+ PRIMARY KEY (id_sales_category)
+);
 
 CREATE UNIQUE INDEX salescat_index on RefSalesCategory (sales_category);
 
@@ -188,7 +187,6 @@ INSERT INTO RefSalesCategory (sales_category) Values ('Cat 1');
 INSERT INTO RefSalesCategory (sales_category) Values ('Cat 2');
 INSERT INTO RefSalesCategory (sales_category) Values ('Cat 3');
 INSERT INTO RefSalesCategory (sales_category) Values ('Cat 4');
-
 
 
 INSERT INTO SalesCategories (id_photo, id_sales_category) VALUES (3,1);
