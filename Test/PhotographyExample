@@ -125,9 +125,7 @@ CREATE TABLE UpdatedPhotographs
 );
 
 
-INSERT INTO Photographers (first_name, last_name, order_form) VALUES ('JEFF', 'SALVAGE', 'ORDER1');
-INSERT INTO Photographers (first_name, last_name, order_form) VALUES ('JOHN', 'COCKTOSEN', 'ORDER2');
-INSERT INTO Photographers (first_name, last_name, order_form) VALUES ('BILLY JEAN', 'KING', 'ORDER1');
+
 
 INSERT INTO RefEquipmentUsed (equipment_desc) VALUES ('580X Flash II');
 INSERT INTO RefEquipmentUsed (equipment_desc) VALUES ('Canon Rebel');
