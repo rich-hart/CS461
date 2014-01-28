@@ -125,13 +125,13 @@ CREATE TABLE UpdatedPhotographs
 );
 
 
-COPY Photographers FROM './Database_Tables/Photographers.csv' DELIMITER ',' FORMAT CSV HEADER TRUE;
-COPY Photographs FROM './Database_Tables/Photographs.csv' DELIMITER ',' FORMAT CSV HEADER TRUE;
-COPY PhotoSales FROM './Database_Tables/PhotoSales.csv' DELIMITER ',' FORMAT CSV HEADER TRUE;
-COPY Customers FROM './Database_Tables/Customers.csv' DELIMITER ',' FORMAT CSV HEADER TRUE;
-COPY RefPhotoAttributes FROM './Database_Tables/RefPhotoAttributes.csv' DELIMITER ',' FORMAT CSV HEADER TRUE;
-COPY RefSalesCategory FROM './Database_Tables/RefSalesCategory.csv' DELIMITER ',' FORMAT CSV HEADER TRUE;
-COPY SalesCategories FROM './Database_Tables/SalesCategories.csv' DELIMITER ',' FORMAT CSV HEADER TRUE;
-COPY RefEquipmentUsed FROM './Database_Tables/RefEquipmentUsed.csv' DELIMITER ',' FORMAT CSV HEADER TRUE;
-COPY PhotoEquipment FROM './Database_Tables/PhotoEquipment.csv' DELIMITER ',' FORMAT CSV HEADER TRUE;
-COPY UpdatedPhotographs FROM './Database_Tables/UpdatedPhotographs.csv' DELIMITER ',' FORMAT CSV HEADER TRUE;
+COPY Photographers FROM './Database_Tables/Photographers.csv' DELIMITER ',' CSV HEADER;
+COPY Photographs FROM './Database_Tables/Photographs.csv' DELIMITER ',' CSV HEADER;
+COPY PhotoSales FROM './Database_Tables/PhotoSales.csv' DELIMITER ',' CSV HEADER;
+COPY Customers FROM './Database_Tables/Customers.csv' DELIMITER ',' CSV HEADER;
+COPY RefPhotoAttributes FROM './Database_Tables/RefPhotoAttributes.csv' DELIMITER ',' CSV HEADER;
+COPY RefSalesCategory FROM './Database_Tables/RefSalesCategory.csv' DELIMITER ',' CSV HEADER;
+COPY SalesCategories FROM './Database_Tables/SalesCategories.csv' DELIMITER ',' CSV HEADER;
+COPY RefEquipmentUsed FROM './Database_Tables/RefEquipmentUsed.csv' DELIMITER ',' CSV HEADER;
+COPY PhotoEquipment FROM './Database_Tables/PhotoEquipment.csv' DELIMITER ',' CSV HEADER;
+COPY UpdatedPhotographs FROM './Database_Tables/UpdatedPhotographs.csv' DELIMITER ',' CSV HEADER;
