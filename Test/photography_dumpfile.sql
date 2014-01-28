@@ -357,6 +357,21 @@ ALTER TABLE ONLY refphotoattributes ALTER COLUMN id_attribute SET DEFAULT nextva
 --
 
 COPY customers (id_customer, first_name, last_name, address1, address2, city, state, zip, country) FROM stdin;
+1	Benjamín            	Smith               	8931 WASHINGTON                                   	App. 120                                          	New York            	New York            	69816    	USA                 
+2	Daniel              	Johnson             	1440 WASHINGTON                                   	Suite 123                                         	Los Angeles         	California          	70393    	USA                 
+3	Miguel              	Williams            	9683 WASHINGTON                                   	\N	Chicago             	Illinois            	89384    	USA                 
+4	William             	Brown               	696 WASHINGTON                                    	\N	Houston             	Texas               	92777    	USA                 
+5	Liam                	Jones               	4361 ADAMS                                        	\N	Philadelphia        	Pennsylvania        	32464    	USA                 
+6	Ethan               	Miller              	8613 Jefferson                                    	\N	New York            	New York            	89027    	USA                 
+7	Liam                	Davis               	8532 Madison                                      	\N	Los Angeles         	California          	37611    	USA                 
+8	Jacob               	García              	4507 Monroe                                       	P.O. Box 1321                                     	Chicago             	Illinois            	74274    	USA                 
+9	Liam                	Rodríguez           	7167 Jackson                                      	\N	Houston             	Texas               	27672    	USA                 
+10	Mía                 	Wilson              	6388 Buren                                        	\N	Philadelphia        	Pennsylvania        	15033    	USA                 
+11	Alysha              	Martínez            	2305 Harrison                                     	App. 121                                          	New York            	New York            	87408    	USA                 
+12	Sophia              	Anderson            	8072 Tyler                                        	\N	Los Angeles         	California          	44110    	USA                 
+13	Maya                	Taylor              	4124 Polk                                         	\N	Chicago             	Illinois            	91881    	USA                 
+14	Emma                	Thomas              	8592 Taylor                                       	\N	Houston             	Texas               	99241    	USA                 
+15	Sarah               	Hernández           	8757 Fillmore                                     	\N	Philadelphia        	Pennsylvania        	46021    	USA                 
 \.
 
 
@@ -509,6 +524,26 @@ SELECT pg_catalog.setval('photographs_id_photo_seq', 1, false);
 --
 
 COPY photosales (id_sale, id_customer, id_photo, quanity_sold, id_sale_price, id_tax, sale_date) FROM stdin;
+1	14	34	2	20	1.19999999999999996	2012-02-26
+2	2	32	2	20	1.19999999999999996	2013-03-29
+3	1	4	3	30	1.80000000000000004	2013-07-04
+4	11	0	1	10	0.599999999999999978	2014-02-27
+5	8	17	1	10	0.599999999999999978	2010-12-29
+6	17	15	1	10	0.599999999999999978	2011-02-09
+7	5	34	2	20	1.19999999999999996	2010-01-12
+8	11	7	3	30	1.80000000000000004	2012-07-09
+9	7	18	3	30	1.80000000000000004	2014-03-12
+10	8	17	2	20	1.19999999999999996	2011-12-07
+11	10	32	1	10	0.599999999999999978	2011-04-08
+12	7	17	1	10	0.599999999999999978	2012-07-05
+13	10	25	3	30	1.80000000000000004	2012-01-07
+14	17	10	3	30	1.80000000000000004	2012-06-09
+15	15	9	2	20	1.19999999999999996	2012-03-10
+16	18	37	3	30	1.80000000000000004	2010-07-13
+17	18	40	3	30	1.80000000000000004	2012-03-27
+18	2	23	3	30	1.80000000000000004	2014-10-08
+19	11	33	3	30	1.80000000000000004	2014-04-24
+20	16	9	3	30	1.80000000000000004	2011-05-11
 \.
 
 
