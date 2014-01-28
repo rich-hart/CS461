@@ -133,16 +133,16 @@ ALTER SEQUENCE photographers_id_photographer_seq OWNED BY photographers.id_photo
 
 CREATE TABLE photographs (
     id_photo integer NOT NULL,
-    filename character(20),
-    title character(20),
-    description character(20),
+    filename character(40),
+    title character(40),
+    description character(40),
     id_photographer integer,
     photo_order integer,
     height integer,
     width integer,
-    city character(20),
-    state character(20),
-    country character(20),
+    city character(40),
+    state character(40),
+    country character(40),
     date_taken date
 );
 
@@ -380,6 +380,45 @@ COPY photoattributes (id_photo, id_attribute) FROM stdin;
 --
 
 COPY photoequipment (id_photo, id_equipment) FROM stdin;
+0	3
+1	3
+2	5
+3	4
+4	1
+5	4
+6	3
+7	0
+8	1
+9	0
+10	2
+11	3
+12	5
+13	4
+14	5
+15	2
+16	2
+17	3
+18	1
+19	5
+20	1
+21	2
+22	2
+23	5
+24	0
+25	4
+26	2
+27	4
+28	5
+29	2
+30	2
+31	0
+32	4
+33	1
+34	4
+35	2
+36	3
+37	4
+38	4
 \.
 
 
@@ -414,6 +453,47 @@ SELECT pg_catalog.setval('photographers_id_photographer_seq', 1, false);
 --
 
 COPY photographs (id_photo, filename, title, description, id_photographer, photo_order, height, width, city, state, country, date_taken) FROM stdin;
+0	00.jpg                                  	Photo 0                                 	Pictures of Family                      	5	40	300	600	San Miguel de Allende                   	#N/A                                    	Mexico                                  	2013-10-29
+1	01.jpg                                  	Photo 1                                 	Pictures of Friends                     	9	39	520	1020	Budapest                                	#N/A                                    	Hungary                                 	2013-12-28
+2	02.jpg                                  	Photo 2                                 	Pictures for Work                       	6	38	480	860	Florence                                	#N/A                                    	Italy                                   	2013-09-04
+3	03.jpg                                  	Photo 3                                 	Pictures of Historical Monuments        	4	37	570	990	Salzburg                                	#N/A                                    	Austria                                 	2010-07-27
+4	04.jpg                                  	Photo 4                                 	Pictures of Family                      	4	36	300	600	Charleston                              	South Carolina                          	#N/A                                    	2013-08-10
+5	05.jpg                                  	Photo 5                                 	Pictures of Friends                     	2	35	520	1020	San Sebastián                           	#N/A                                    	Spain                                   	2013-10-25
+6	06.jpg                                  	Photo 6                                 	Pictures for Work                       	9	34	480	860	Vienna                                  	#N/A                                    	Austria                                 	2012-09-23
+7	07.jpg                                  	Photo 7                                 	Pictures of Historical Monuments        	6	33	570	990	Rome                                    	#N/A                                    	Italy                                   	2014-10-21
+8	8.jpg                                   	Photo 8                                 	Pictures of Historical Monuments        	1	32	570	990	Maimi                                   	Florida                                 	#N/A                                    	2013-07-07
+9	9.jpg                                   	Photo 9                                 	Pictures of Family                      	5	31	300	600	Honolulu                                	Hawaii                                  	#N/A                                    	2013-05-23
+10	10.jpg                                  	Photo 10                                	Pictures of Friends                     	6	30	520	1020	Chicago                                 	Illinois                                	#N/A                                    	2014-04-16
+11	11.jpg                                  	Photo 11                                	Pictures of Historical Monuments        	1	29	570	990	Bruges                                  	#N/A                                    	Belgium                                 	2012-04-22
+12	12.jpg                                  	Photo 12                                	Pictures of Family                      	6	28	300	600	Vancouver                               	#N/A                                    	Canada                                  	2012-03-02
+13	13.jpg                                  	Photo 13                                	Pictures of Friends                     	7	27	520	1020	Kyoto                                   	#N/A                                    	Japan                                   	2011-05-18
+14	14.jpg                                  	Photo 14                                	Pictures for Work                       	1	26	480	860	Prague                                  	#N/A                                    	Czech Republic                          	2010-11-28
+15	15.jpg                                  	Photo 15                                	Pictures of Historical Monuments        	3	25	570	990	Kraków                                  	#N/A                                    	Poland                                  	2012-02-21
+16	16.jpg                                  	Photo 16                                	Pictures of Family                      	10	24	300	600	Victoria                                	#N/A                                    	Canada                                  	2010-04-27
+17	17.jpg                                  	Photo 17                                	Pictures of Friends                     	4	23	520	1020	Sydney                                  	#N/A                                    	Australia                               	2010-03-26
+18	18.jpg                                  	Photo 18                                	Pictures for Work                       	3	22	480	860	Santa Fe                                	New Mexico                              	#N/A                                    	2014-04-12
+19	19.jpg                                  	Photo 19                                	Pictures of Historical Monuments        	2	21	570	990	Seville                                 	#N/A                                    	Spain                                   	2012-07-30
+20	20.jpg                                  	Photo 20                                	Pictures of Family                      	9	20	300	600	Beirut                                  	#N/A                                    	Lebanon                                 	2014-11-13
+21	21.jpg                                  	Photo 21                                	Pictures of Friends                     	4	19	520	1020	Paris                                   	#N/A                                    	France                                  	2012-04-17
+22	22.jpg                                  	Photo 22                                	Pictures for Work                       	5	18	480	860	Melbourne                               	#N/A                                    	Australia                               	2014-02-23
+23	23.jpg                                  	Photo 23                                	Pictures of Historical Monuments        	8	17	570	990	Venice                                  	#N/A                                    	Italy                                   	2014-10-22
+24	24.jpg                                  	Photo 24                                	Pictures of Family                      	1	16	300	600	Barcelona                               	#N/A                                    	Spain                                   	2013-07-08
+25	25.jpg                                  	Photo 25                                	Pictures of Friends                     	4	15	520	1020	Philadelphia                            	Pennsylvania                            	#N/A                                    	2012-12-24
+26	26.jpg                                  	Photo 26                                	Pictures for Work                       	2	14	480	860	NYC                                     	New York                                	#N/A                                    	2011-09-23
+27	27.jpg                                  	Photo 27                                	Pictures of Historical Monuments        	4	13	570	990	Maimi                                   	Florida                                 	#N/A                                    	2012-09-29
+28	28.jpg                                  	Photo 28                                	Pictures of Family                      	10	12	300	600	Honolulu                                	Hawaii                                  	#N/A                                    	2013-10-23
+29	29.jpg                                  	Photo 29                                	Pictures of Friends                     	3	11	520	1020	Chicago                                 	Illinois                                	#N/A                                    	2012-02-15
+30	30.jpg                                  	Photo 30                                	Pictures for Work                       	4	10	480	860	San Miguel de Allende                   	#N/A                                    	Mexico                                  	2010-09-24
+31	31.jpg                                  	Photo 31                                	Pictures of Historical Monuments        	1	9	570	990	Budapest                                	#N/A                                    	Hungary                                 	2010-02-04
+32	32.jpg                                  	Photo 32                                	Pictures of Family                      	1	8	300	600	Florence                                	#N/A                                    	Italy                                   	2011-03-28
+33	33.jpg                                  	Photo 33                                	Pictures of Friends                     	1	7	520	1020	Salzburg                                	#N/A                                    	Austria                                 	2010-04-26
+34	34.jpg                                  	Photo 34                                	Pictures for Work                       	3	6	480	860	Charleston                              	South Carolina                          	#N/A                                    	2010-08-17
+35	35.jpg                                  	Photo 35                                	Pictures of Historical Monuments        	10	5	570	990	San Sebastián                           	#N/A                                    	Spain                                   	2010-10-20
+36	36.jpg                                  	Photo 36                                	Pictures of Family                      	7	4	300	600	Vienna                                  	#N/A                                    	Austria                                 	2012-06-18
+37	37.jpg                                  	Photo 37                                	Pictures of Friends                     	4	3	520	1020	Rome                                    	#N/A                                    	Italy                                   	2010-06-30
+38	38.jpg                                  	Photo 38                                	Pictures for Work                       	3	2	480	860	Siena                                   	#N/A                                    	Italy                                   	2010-02-25
+39	39.jpg                                  	Photo 39                                	Pictures of Historical Monuments        	1	1	480	860	Beijing                                 	#N/A                                    	China                                   	2014-07-24
+40	40.jpg                                  	Photo 40                                	Pictures of Historical Monuments        	5	0	480	860	Chongqing                               	#N/A                                    	China                                   	2011-12-07
 \.
 
 
@@ -494,6 +574,47 @@ COPY refsalescategory (id_sales_category, sales_category) FROM stdin;
 --
 
 COPY salescategories (id_photo, id_sales_category) FROM stdin;
+0	2
+1	6
+2	3
+3	4
+4	3
+5	5
+6	6
+7	3
+8	3
+9	5
+10	2
+11	1
+12	5
+13	6
+14	5
+15	3
+16	1
+17	3
+18	5
+19	5
+20	3
+21	6
+22	2
+23	3
+24	6
+25	1
+26	5
+27	6
+28	1
+29	5
+30	5
+31	3
+32	6
+33	6
+34	1
+35	2
+36	1
+37	4
+38	6
+39	1
+40	1
 \.
 
 
