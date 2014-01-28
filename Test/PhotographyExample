@@ -135,4 +135,3 @@ COPY SalesCategories FROM './Database_Tables/SalesCategories.csv' DELIMITER ',' 
 COPY RefEquipmentUsed FROM './Database_Tables/RefEquipmentUsed.csv' DELIMITER ',' CSV HEADER TRUE
 COPY PhotoEquipment FROM './Database_Tables/PhotoEquipment.csv' DELIMITER ',' CSV HEADER TRUE
 COPY UpdatedPhotographs FROM './Database_Tables/UpdatedPhotographs.csv' DELIMITER ',' CSV HEADER TRUE
-
