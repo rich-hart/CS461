@@ -29,7 +29,7 @@ CREATE TABLE Photographs
  photo_order int,
  height int, 
  width int,
- city char (20),
+ city char (40),
  state char (20),
  country char(20),
  date_taken date,
