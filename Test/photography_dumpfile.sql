@@ -388,6 +388,17 @@ COPY photoequipment (id_photo, id_equipment) FROM stdin;
 --
 
 COPY photographers (id_photographer, first_name, last_name, order_form) FROM stdin;
+0	Jeff                	Salvage             	Order 2                       
+1	TYNISHA             	JOHNSON             	Order 12                      
+2	TREENA              	WILLIAMS            	Order 6                       
+3	TOCCARA             	JONES               	Order 17                      
+4	TISH                	BROWN               	Order 4                       
+5	THOMASENA           	DAVIS               	Order 14                      
+6	TEGAN               	MILLER              	Order 7                       
+7	SOILA               	WILSON              	Order 2                       
+8	SHILOH              	MOORE               	Order 3                       
+9	SHENNA              	TAYLOR              	Order 17                      
+10	SHARMAINE           	ANDERSON            	Order 9                       
 \.
 
 
@@ -433,6 +444,12 @@ SELECT pg_catalog.setval('photosales_id_sale_seq', 1, false);
 --
 
 COPY refequipmentused (id_equipment, equipment_desc) FROM stdin;
+0	580X Flash II                 
+1	Canon Rebel                   
+2	300mm IS F2.8 Lens Canon      
+3	M12 Lens                      
+4	Nikon COOLPIX L820            
+5	Pentax Bridge camera          
 \.
 
 
@@ -463,6 +480,12 @@ SELECT pg_catalog.setval('refphotoattributes_id_attribute_seq', 1, false);
 --
 
 COPY refsalescategory (id_sales_category, sales_category) FROM stdin;
+1	Cat 1               
+2	Cat 2               
+3	Cat 3               
+4	Cat 4               
+5	Cat 5               
+6	Cat 6               
 \.
 
 
@@ -479,6 +502,14 @@ COPY salescategories (id_photo, id_sales_category) FROM stdin;
 --
 
 COPY updatedphotographs (filename, title) FROM stdin;
+A.jpeg              	Photo A.jpeg        
+B.jpeg              	Photo B.jpeg        
+C.jpeg              	Photo C.jpeg        
+D.jpeg              	Photo D.jpeg        
+E.jpeg              	Photo E.jpeg        
+F.jpeg              	Photo F.jpeg        
+G.jpeg              	Photo G.jpeg        
+H.jpeg              	Photo H.jpeg        
 \.
 
 
