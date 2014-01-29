@@ -20,7 +20,7 @@ public class UI {
 	private static UIimplementation UIimpl = new ConsoleUI();
 	private static ConnectionManager manager;
 	private static DatabaseHandler handler;
-	private static String ConfSQL = "../.pgpass";
+	private static String ConfSQL = "../../.pgpass";
 	//private static String ConfSQL = "Mycredential";
 	private static String AdminConfSQL = "Mycredential";
 	private static int Connection; 
