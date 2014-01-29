@@ -1,0 +1,22 @@
+-- In CS461Dev
+create table planogram(name varchar(20));
+insert into planogram values(null);
+insert into planogram values('planogram1');
+
+-- In CS461Production
+create table planogram(name varchar(20));
+insert into planogram values('planogram1');
+
+-- Question get planogram with null values
+
+--Answer
+
+select * from planogram where name is not null;
+
+-- Example of partial answers
+
+select * from planogram;
+
+-- Result: 
+-- CS461Dev => don't pass
+-- CS461Production => pass

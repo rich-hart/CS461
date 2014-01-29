@@ -1,0 +1,23 @@
+drop table if exists submission;
+drop table if exists response;
+drop table if exists students;
+drop table if exists question;
+drop table if exists datasets;
+drop table if exists homework;
+
+
+create table students(idstudent varchar(20), firstname varchar(20), lastname varchar(20), emailaddress varchar(20), userid varchar(20),PRIMARY KEY(idstudent));
+create table homework(idhomework SERIAL not null primary key, assignment varchar(20), duedate varchar(20), latedate varchar(20), latepenality int);
+create table question(idhomework SERIAL REFERENCES homework(idhomework),idquestion int,description varchar(1000),solution varchar(1000),Points int,penalitypoints int, datasetpoints int, PRIMARY KEY(idhomework,idquestion));
+create table datasets(iddataset SERIAL not null primary key, idhomework SERIAL REFERENCES homework(idhomework), datasetdata varchar(100));
+create table response(idresponse SERIAL not null primary key, responsedesc varchar(100));
+create table submission(idstudent varchar(20) REFERENCES students(idstudent), idhomework SERIAL REFERENCES homework(idhomework), idquestion int, attemptnbr SERIAL not null primary key, iscorrect int, idresponse SERIAL REFERENCES response(idresponse));
+
+insert into homework(assignment,duedate,latedate,latepenality) values('homework1','01-01-01','01-02-01',2);
+
+insert into question values(1,1,'Get planogram with non null values?','select * from planogram where name is not null;',10,5,2);
+
+insert into question values(1,2,'Get planogram with all values?','select * from planogram;',10,5,2);
+
+insert into datasets(idhomework,datasetdata) values(1,'CS461Dev');
+insert into datasets(idhomework,datasetdata) values(1,'CS461Production');

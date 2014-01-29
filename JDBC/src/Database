@@ -1,0 +1,35 @@
+drop table if exists submission;
+drop table if exists response;
+drop table if exists students;
+drop table if exists homework;
+drop table if exists question;
+drop table if exists datasets;
+
+
+create table students(idstudent varchar(20), firstname varchar(20), lastname varchar(20), emailaddress varchar(20), userid varchar(20),PRIMARY KEY(idstudent));
+create table homework(idhomework int, assignment varchar(20), duedate varchar(20), latedate varchar(20), latepenality int, PRIMARY KEY(idhomework));
+create table question(idhomework int,idquestion int,description varchar(20),solution varchar(100),Points int,penalitypoints int, datasetpoints int, resultsetpoints int, PRIMARY KEY(idhomework,idquestion));
+create table datasets(idhomework int,iddataset int,datasetdata varchar(1000), PRIMARY KEY(idhomework,iddataset));
+create table response(idresponse SERIAL not null primary key, responsedesc varchar(100));
+create table submission(idstudent varchar(20) REFERENCES students(idstudent), idhomework int REFERENCES homework(idhomework), idquestion int, attemptnbr SERIAL not null, iscorrect int, idresponse SERIAL REFERENCES response(idresponse), PRIMARY KEY(idstudent, idhomework, idquestion, attemptnbr));
+
+insert into homework values(1,'homework1','01-01-01','01-02-01',2);
+insert into homework values(2,'homework2','01-01-01','01-02-01',2);
+insert into homework values(3,'homework3','01-01-01','01-02-01',2);
+insert into homework values(4,'homework4','01-01-01','01-02-01',2);
+insert into homework values(5,'homework5','01-01-01','01-02-01',2);
+
+insert into question values(1,1,'question1homework1','solutionQ1H1',10,5,2);
+insert into question values(1,2,'question2homework1','solutionQ2H1',10,5,2);
+insert into question values(1,3,'question3homework1','solutionQ3H1',10,5,2);
+insert into question values(1,4,'question4homework1','solutionQ4H1',10,5,2);
+insert into question values(1,5,'question5homework1','solutionQ5H1',10,5,2);
+
+insert into question values(2,1,'question1homework2','solutionQ1H2',10,5,2);
+insert into question values(2,2,'question2homework2','solutionQ2H2',10,5,2);
+insert into question values(2,3,'question3homework2','solutionQ3H2',10,5,2);
+insert into question values(2,4,'question4homework2','solutionQ4H2',10,5,2);
+insert into question values(2,5,'question5homework2','solutionQ5H2',10,5,2);
+
+insert into datasets(1,1,"CS461Dev");
+insert into datasets(1,2,"CS461Production");

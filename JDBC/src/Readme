@@ -1,0 +1,23 @@
+I used 3 databases:
+
+1. mh899_cs461 central database where the information about submission, students ... are stored (credential are in Mycredential).
+2. CS461Dev and CS461Production database used as datasets to test student submission.
+
+Demo
+
+1. Create the central database, one example can be found in TestingContext/Context1/Database
+
+psql -h wander -U mh899 -d mh899_cs461 -a -f JDBC/TestingContext/Context1/DatabaseContext1
+
+
+=> Password in file JDBC/Mycredential
+
+2. Create the datasets in CS461Dev and CS461Production (review Context1 to change the Context1 before running)
+
+psql -h wander -U cs461_user -d CS461Dev -a -f JDBC/TestingContext/Context1/Context1
+
+psql -h wander -U cs461_user -d CS461Production -a -f JDBC/TestingContext/Context1/Context1
+
+=> Password JDBC/CS461Dev and JDBC/CS461Production
+
+Add TODOS in file JDBC/TODO. There some useless files that I am using for testing, when you run the application in eclipse select UI as class containing the main method.
